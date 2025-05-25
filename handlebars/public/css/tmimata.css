@@ -1,0 +1,138 @@
+html, body {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body {
+    background: url("/images/tennis-court-surface.png") no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    font: 1.8em / 1.8 Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  
+/*main content*/
+.wrapper {
+    flex: 1; 
+    min-height: calc(100vh - 120px); 
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .content-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 120px;
+    padding: 0 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap; 
+  }
+  
+  .box {
+    width: 300px; 
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 95%;
+    max-width: 700px;
+  }
+  
+
+  @media screen and (max-width: 768px) {
+    .content-row {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .box {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
+
+  .kathgories-tmhmatvn {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  .logo-tmhma {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .epejhghsh {
+    color: #555;
+  }
+  
+  .epikefalida-tmhmatvn{
+    color: green;
+  }
+  
+  .akadhmies td, 
+  .agvnistika td, 
+  .enhlikvn td, 
+  .eidika-tmhmata td {
+    padding: 5px;
+    font-size: 0.9em;
+  }
+  .akadhmies h3,
+  .agvnistika h3,
+  .enhlikvn h3,
+  .eidika-tmhmata h3 {
+    margin: 5px 0;
+    font-size: 1em;
+  }
+  .akadhmies p,
+  .agvnistika p,
+  .enhlikvn p,
+  .eidika-tmhmata p {
+    margin: 5px 0;
+    line-height: 1.3;
+    text-align: justify;
+  }
+
+  .apply-btn {
+    padding: 8px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .apply-btn:hover {
+    background-color: darkgreen;
+  }
+  
+  .action-button {
+    text-align: center;
+    vertical-align: middle;
+  }
+  

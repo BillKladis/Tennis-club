@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Φόρμα Επιλογής</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    form {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+
+    h1 {
+      text-align: center;
+    }
+
+    h1, h2, h3 {
+  color: darkgreen;
+}
+
+.radio-options label {
+  color: darkgreen;
+  font-weight: 500;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+input[type="radio"] {
+  accent-color: darkgreen;
+}
+
+    .selection-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 20px 0;
+    }
+
+    .selection-container label {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .form-section {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+  color: darkgreen;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+    .form-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-grid label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-grid input[type="text"],
+    .form-grid input[type="tel"],
+    .form-grid input[type="email"] {
+      padding: 8px;
+      font-size: 14px;
+      width: 60%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .notes-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      height: 80px;
+      resize: vertical;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      border: 1px solid #ccc;
+      padding: 5px;
+      text-align: center;
+    }
+
+    .submit-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .schedule-table input[type="checkbox"] {
+  display: none;
+}
+
+.schedule-table td {
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.schedule-table td:hover {
+  background-color: #f0f0f0;
+}
+
+.schedule-table td.selected {
+    background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+}
+
+.schedule-table td:hover {
+  background-color: #d0e5d0;
+  cursor: pointer;
+}
+
+
+button[type="submit"] {
+  background-color: darkgreen;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #065f06; 
+}
+
+
+.custom-select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  font-size: 1rem;
+  color: #333;
+  user-select: none;
+}
+
+.custom-select .selected-option {
+  padding: 0.6rem 1rem;
+  background-color: white;
+}
+
+.custom-select .options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid darkgreen;
+  border-top: none;
+  background-color: white;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.custom-select.open .options {
+  display: block;
+}
+
+.custom-select .option {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.custom-select .option:hover {
+  background-color: darkgreen;
+  color: white;
+}
+
+
+.custom-select-wrapper {
+  width: 60%; 
+  display: inline-block;
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>Επιλογή Χρήστη</h1>
+
+  <div class="selection-container">
+    <label>
+      <input type="radio" name="userType" value="me" onchange="showForm(this.value)">
+      Για εμένα
+    </label>
+    <label>
+      <input type="radio" name="userType" value="child" onchange="showForm(this.value)">
+      Για το παιδί μου
+    </label>
+  </div>
+
+  <!-- === ΦΟΡΜΑ ΓΙΑ ΕΜΕΝΑ === -->
+  <div id="form-me" class="form-section">
+    
+    <fieldset>
+      <legend>Στοιχεία Αθλητή</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="myName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="mySurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="myPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="myEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Σημειώσεις</legend>
+      <div class="form-grid">
+        <label>
+          <textarea type="text" name="notes" placeholder="Ιατρικά θέματα ή σημαντικές πληροφορίες" class="notes-input"></textarea>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Προτίμηση Ώρας</legend>
+      <table class="schedule-table">
+        <thead>
+            <tr>
+              <th>Δευτέρα</th>
+              <th>Τρίτη</th>
+              <th>Τετάρτη</th>
+              <th>Πέμπτη</th>
+              <th>Παρασκευή</th>
+              <th>Σάββατο</th>
+              <th>Κυριακή</th>
+            </tr>
+          </thead>
+          
+        <tbody id="schedule-body">
+
+        </tbody>
+      </table>
+    </fieldset>
+
+    <div class="submit-button">
+        <button type="submit">Υποβολή</button> 
+    </div>
+  </div>
+
+  <!-- ===ΦΟΡΜΑ ΓΙΑ ΤΟ ΠΑΙΔΙ === -->
+  <div id="form-child" class="form-section">
+
+    <fieldset>
+      <legend>Στοιχεία Παιδιού</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="childName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="childSurname" placeholder="Επώνυμο" required>
+        </label>
+        <label for="child-age">Ηλικία</label>
+<label>
+  Ηλικία
+  <span class="custom-select-wrapper">
+    <div class="custom-select" id="age-select">
+      <div class="selected-option">Επιλέξτε ηλικία</div>
+      <div class="options"></div>
+      <input type="hidden" name="childAge" required>
+    </div>
+  </span>
+</label>
+
+          
+        <label>Τηλέφωνο
+          <input type="tel" name="childPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="childEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Στοιχεία Γονέα</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="parentName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="parentSurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="parentPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="parentEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Σημειώσεις</legend>
+      <div class="form-grid">
+        <label>
+          <textarea type="text" name="notes" placeholder="Ιατρικά θέματα ή σημαντικές πληροφορίες" class="notes-input"></textarea>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Προτίμηση Ώρας</legend>
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Δευτέρα</th>
+            <th>Τρίτη</th>
+            <th>Τετάρτη</th>
+            <th>Πέμπτη</th>
+            <th>Παρασκευή</th>
+            <th>Σάββατο</th>
+            <th>Κυριακή</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-body-child">
+
+        </tbody>
+      </table>
+    </fieldset>
+  
+    <div class="submit-button">
+      <button type="submit">Υποβολή</button>
+    </div>
+  </div>
+  
+
+  <script>
+    function showForm(value) {
+      document.getElementById("form-me").classList.remove("active");
+      document.getElementById("form-child").classList.remove("active");
+
+      if (value === "me") {
+        document.getElementById("form-me").classList.add("active");
+      } else if (value === "child") {
+        document.getElementById("form-child").classList.add("active");
+      }
+    }
+
+    // Δημιουργία εβδομαδιαίου πίνακα με ώρες (08:00-09:00, κ.λπ.)
+    const scheduleBody = document.getElementById("schedule-body");
+const startHour = 8; 
+const endHour = 23;
+
+for (let h = startHour; h < endHour; h++) {
+  const row = document.createElement("tr");
+
+  for (let d = 0; d < 7; d++) {
+    const cell = document.createElement("td");
+
+    // Για Δευτέρα=0 έως Παρασκευή=4, ώρα 22:00-23:00 (h=22)
+    if (d >= 0 && d <= 4 && h === 22) {
+      cell.textContent = "-";
+      cell.style.color = "#999";
+      cell.style.backgroundColor = "#f9f9f9";
+      cell.style.cursor = "default";
+      // Δεν προσθέτουμε checkbox, μη επιλέξιμο
+    } else {
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = `schedule-${d}-${h}`;
+      checkbox.id = `schedule-${d}-${h}`;
+
+      const hourLabel = `${String(h).padStart(2, '0')}:00-${String(h + 1).padStart(2, '0')}:00`;
+      const label = document.createElement("label");
+      label.htmlFor = checkbox.id;
+      label.textContent = hourLabel;
+
+      cell.addEventListener("click", () => {
+        checkbox.checked = !checkbox.checked;
+        cell.classList.toggle("selected", checkbox.checked);
+      });
+
+      checkbox.style.display = "none";
+      cell.appendChild(checkbox);
+      cell.appendChild(label);
+    }
+
+    row.appendChild(cell);
+  }
+
+  scheduleBody.appendChild(row);
+}
+
+const scheduleBodyChild = document.getElementById("schedule-body-child");
+
+for (let h = startHour; h < endHour; h++) {
+  const row = document.createElement("tr");
+
+  for (let d = 0; d < 7; d++) {
+    const cell = document.createElement("td");
+
+    if (d >= 0 && d <= 4 && h === 22) {
+      cell.textContent = "-";
+      cell.style.color = "#999";
+      cell.style.backgroundColor = "#f9f9f9";
+      cell.style.cursor = "default";
+    } else {
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = `child-schedule-${d}-${h}`;
+      checkbox.id = `child-schedule-${d}-${h}`;
+
+      const hourLabel = `${String(h).padStart(2, '0')}:00-${String(h + 1).padStart(2, '0')}:00`;
+      const label = document.createElement("label");
+      label.htmlFor = checkbox.id;
+      label.textContent = hourLabel;
+
+      cell.addEventListener("click", () => {
+        checkbox.checked = !checkbox.checked;
+        cell.classList.toggle("selected", checkbox.checked);
+      });
+
+      checkbox.style.display = "none";
+      cell.appendChild(checkbox);
+      cell.appendChild(label);
+    }
+
+    row.appendChild(cell);
+  }
+
+  scheduleBodyChild.appendChild(row);
+}
+
+
+/*ηλικια στυλε*/
+document.addEventListener("DOMContentLoaded", function () {
+    const ageSelect = document.getElementById("age-select");
+    const selected = ageSelect.querySelector(".selected-option");
+    const optionsContainer = ageSelect.querySelector(".options");
+    const hiddenInput = ageSelect.querySelector("input");
+
+    // Δημιουργία επιλογών ηλικίας από 4 έως 17
+    for (let i = 4; i <= 17; i++) {
+      const option = document.createElement("div");
+      option.classList.add("option");
+      option.textContent = i;
+      option.dataset.value = i;
+      optionsContainer.appendChild(option);
+    }
+
+    // Άνοιγμα/Κλείσιμο dropdown
+    selected.addEventListener("click", () => {
+      ageSelect.classList.toggle("open");
+    });
+
+    // Επιλογή τιμής
+    optionsContainer.addEventListener("click", (e) => {
+      if (e.target.classList.contains("option")) {
+        const value = e.target.dataset.value;
+        selected.textContent = value;
+        hiddenInput.value = value;
+        ageSelect.classList.remove("open");
+      }
+    });
+
+    // Κλείσιμο όταν κάνεις κλικ εκτός
+    document.addEventListener("click", (e) => {
+      if (!ageSelect.contains(e.target)) {
+        ageSelect.classList.remove("open");
+      }
+    });
+  });
+
+
+  </script>
+
+</body>
+</html>

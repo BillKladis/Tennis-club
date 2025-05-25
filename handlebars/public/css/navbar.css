@@ -1,0 +1,116 @@
+.navbar {
+    position: fixed; 
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    background-color: #333;
+    z-index: 1000; 
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; 
+    padding: 10px;
+    transition: height 0.3s ease;
+  }
+  
+  .navbar .logo {
+    height: 50px; 
+    width: auto;
+    display: block;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    margin-left: auto; 
+  }
+  
+  .navbar a.con-page {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.2s ease;
+  }
+  
+  .navbar a.con-page:hover {
+    background-color: #ddd;
+    color: green;
+    text-decoration: underline;
+  }
+  
+  .navbar a.active {
+    background-color: #04AA6D;
+    color: white;
+    text-decoration-line: underline;
+  }
+  
+  .active {
+    background-color: #04AA6D;
+    color: white;
+    text-decoration: underline;
+  }
+  
+  
+  
+
+  @media screen and (min-width: 992px) {
+    .navbar {
+        flex-wrap: nowrap;
+        padding: 0 20px;
+        height: 60px;
+    }
+  
+    .logo-container {
+        flex: 0 0 auto;
+    }
+  
+    .nav-links {
+        justify-content: center;
+    }
+  
+  }
+  
+
+  @media screen and (max-width: 991px) and (min-width: 768px) {
+    .navbar {
+        height: auto;
+        padding: 10px;
+    }
+  
+    .logo-container {
+        flex: 0 0 auto;
+        margin-right: 10px;
+    }
+  
+    .nav-links {
+        flex: 1;
+        justify-content: center;
+    }
+  
+  }
+  
+  @media screen and (max-width: 767px) {
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        padding: 10px;
+    }
+  
+    .logo-container {
+        margin-bottom: 10px;
+    }
+  
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        margin: 5px 0;
+    }
+  }

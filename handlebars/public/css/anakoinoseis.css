@@ -1,0 +1,89 @@
+html, body {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+/*style bg image*/
+body {
+  background: url("/images/tennis-court-surface.png") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+  font: 1.8em / 1.8 Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+/*main content*/
+.wrapper {
+  flex: 1; /* Επέκταση για να γεμίσει τον διαθέσιμο χώρο */
+  min-height: calc(100vh - 120px); /* ύψος περίπου = viewport - ύψος footer αναλογα με το πραγμ;ατικο ύψος footer 120px αλλαγη μετα αναλογα */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.vertical-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 120px;
+  padding: 0 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.data-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.box-title {
+  margin-bottom: 15px;
+  color: green;
+  font-size: 1.5em;
+}
+
+.data-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.data-row {
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button:hover {
+  background-color: #038c5a;
+}
+
