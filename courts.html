@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Επιλογή Γηπέδου</title>
+  <link rel="stylesheet" href="front_page.css"> <!-- navbar styling -->
+  <link rel="stylesheet" href="courts.css">
+  
+  
+  <!-- Load FullCalendar CSS -->
+  <!-- TUI Calendar CSS -->
+  <!-- TimePicker CSS & JS (first) -->
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+
+<!-- DatePicker CSS & JS (after TimePicker) -->
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+
+<!-- Calendar CSS & JS (after DatePicker) -->
+<link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+<script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+</head>
+<body>
+  <!-- Navbar (ίδια με index.html) -->
+  <div class="navbar">
+    <!-- Logo in container -->
+    <div class="logo-container">
+        <img src="gk26.png" class="logo" alt="gk26 Logo">
+    </div>
+    <!-- start nav-links /connected pages -->
+    <div class="nav-links">
+    <a href="" class="con-page" id="index">Αρχική</a>
+    <a href="" class="con-page" id="load-courts">Γήπεδα</a>
+    <a href="" class="con-page">Τμήματα</a>
+    <a href="" class="con-page">Τουρνουά</a>
+    <a href="" class="con-page" id="events">Ανακοινώσεις</a>
+    <a href="" class="con-page">Επικοινωνία</a>
+    <a href="" class="con-page" id="connection">Σύνδεση</a>
+    <!-- end nav-links -->
+    </div>
+  </div>
+  <div id="main-content">
+    <img src="tennis-court-surface.png" class="bg-img" alt="Tennis Court Background">
+    <!-- start login window -->
+  </div>
+
+  <!-- Επιλογή γηπέδων -->
+  
+    <!-- COURTS SECTION -->
+    <section class="step-section" id="courts-section">
+      <button class="section-toggle" id="toggle-courts">Courts</button>
+  
+      <div class="court-selection">
+        <div class="court-card" data-id="1">
+          <img src="court1.jpg" alt="Γήπεδο 1"><p>Γήπεδο 1</p>
+        </div>
+        <div class="court-card" data-id="2">
+          <img src="court2.jpg" alt="Γήπεδο 2"><p>Γήπεδο 2</p>
+        </div>
+        <div class="court-card" data-id="3">
+          <img src="court3.jpg" alt="Γήπεδο 3"><p>Γήπεδο 3</p>
+        </div>
+      </div>
+  
+      <button id="courts-next" class="next-btn">Next</button>
+    </section>
+  
+    <!-- TRAINERS SECTION (αρχικά hidden) -->
+    <section class="step-section" id="trainers-section">
+      <button class="section-toggle" id="toggle-trainers">Trainers</button>
+      <!-- Replace existing trainer cards with: -->
+      <div class="court-selection">
+        <div class="court-card trainer" data-trainerid="1">
+          <img src="placeholder.jpg" alt="Φόρτωση...">
+          <p>Φόρτωση...</p>
+          <span class="more-info" data-id="1">Περισσότερα</span>
+        </div>
+        <div class="court-card trainer" data-trainerid="2">
+          <img src="placeholder.jpg" alt="Φόρτωση...">
+          <p>Φόρτωση...</p>
+          <span class="more-info" data-id="2">Περισσότερα</span>
+        </div>
+        <div class="court-card trainer" data-trainerid="3">
+          <img src="placeholder.jpg" alt="Φόρτωση...">
+          <p>Φόρτωση...</p>
+          <span class="more-info" data-id="3">Περισσότερα</span>
+        </div>
+      </div>
+        
+      <button id="trainers-next" class="next-btn">Next</button>
+    </section>
+    
+    <!-- CALENDAR SECTION -->
+    <section class="step-section calendar-step" id="calendar-section">
+      <button class="section-toggle" id="toggle-calendar">Calendar</button>
+      <div id="calendar" style="max-width: 1000px; margin: auto;"></div>
+    </section>
+  
+  <!-- Load your custom script AT THE END OF THE BODY -->
+  <script type="module" src="courts.js"></script>
+  </body>
+</html>

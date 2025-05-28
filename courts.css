@@ -1,0 +1,267 @@
+/* Header-style toggle buttons */
+#calendar {
+  width: 100%;       /* Ensure it takes full width of its parent */
+  height: 600px;     /* Set a default height for the calendar */
+  overflow: hidden;  /* Prevent overflow if the content exceeds the container */
+}
+.section-toggle {
+    margin-top: 40px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 90%;                    /* <= όχι full width */
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #444;
+    font-size: 1.5rem;
+    text-align: left;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 15px;           /* <= στρογγυλές γωνίες */
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    color: white;
+  }
+  
+  
+  .step-section {
+    padding-top: 100px;
+    margin-top: 80px;
+    background-color: rgba(240, 240, 240, 0.9);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;                   /* <= μικρότερο από 100% */
+    max-width: 4000px;            /* <= λογικό όριο για μεγάλα screens */
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+  }
+  
+  
+  /* Hidden state for content */
+  .step-section.collapsed .court-selection,
+  .step-section.collapsed .next-btn {
+    display: none;
+  }
+  .step-section.collapsed {
+    margin-top: 20px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .step-section.collapsed .section-toggle {
+    font-size: 0.9rem;
+    padding: 0.3rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #333;
+    color: #ccc;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+  
+  /* Adjusted court-selection style */
+  .court-selection {
+    padding-top: 100px;
+    margin-top :10px;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 3rem;
+    margin-top: 0;
+    transition: all 0.3s ease;
+  }
+  .next-btn-trainer {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .next-btn {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  
+  .court-card {
+    background: gray;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 400px;
+    height: 400px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .court-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .court-card p {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .court-card.selected {
+    border: 5px solid #28a745;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+  }
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+  
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .court-selection {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .court-card {
+      width: 90%;
+      height: auto;
+    }
+  
+    .court-card img {
+      height: 200px;
+    }
+  
+    .section-toggle {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.2rem;
+    }
+  }
+  .profile-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .trainer-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  .trainer-bio {
+    color: black;
+    font-style: italic;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .trainer-extra {
+    color: black;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .trainer-skills,
+  .trainer-rating {
+    background: red;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 180px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .trainer-skills ul {
+    
+    text-align: left;
+    padding-left: 1rem;
+  }
+  
+  .trainer-rating p {
+    font-size: 1.2rem;
+    color: #f39c12;
+  }
+  .more-info {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .trainer-modal{ background: yellowgreen;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 80vh; /* Περιορίζει το ύψος του modal */
+    overflow-y: auto;  /* Scroll εσωτερικά αν χρειάζεται */
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .modal-overlay {
+    position: fixed;
+    padding-top: 40 px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px); /* <-- εδώ γίνεται το blur */
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    text-decoration: none !important;
+  }
+  
+  
+  
+  .close-modal {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }  
+  .profile-modal{
+    color:black;
+  }
+
+  .calendar-step.collapsed #calendar {
+  display: none !important;
+}
