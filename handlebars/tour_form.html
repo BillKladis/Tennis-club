@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+    
+    .selection-container {
+  display: flex;
+  gap: 20px; /* Space between the two labels */
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.selection-container label {
+  flex: 1; /* Take equal width */
+  text-align: center;
+  padding: 10px 15px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+    
+    .selection-container label:hover {
+      background: #e0e0e0;
+
+    }
+    
+    .selection-container input[type="radio"] {
+      margin-right: 8px;
+    }
+    
+    .form-section {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .form-section.active {
+      display: block;
+    }
+    
+    fieldset {
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      display:flex;
+    }
+    
+    legend {
+      font-weight: bold;
+      color: #333;
+      padding: 0 10px;
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    
+    label {
+      display: flex;
+      color:black;
+      flex-direction: column;
+      font-weight: 500;
+    }
+    
+    input, textarea, select {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-top: 5px;
+      font-size: 14px;
+      display:flex;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+    }
+    
+    .notes-input {
+      min-height: 80px;
+      resize: vertical;
+    }
+    
+    .categories-fieldset .form-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .categories-fieldset label {
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    .categories-fieldset input[type="checkbox"] {
+      margin-right: 8px;
+      margin-top: 0;
+    }
+    
+    .submit-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    button[type="submit"] {
+      background: #007bff;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    button[type="submit"]:hover {
+      background: #0056b3;
+    }
+    
+    .custom-select-wrapper {
+      position: relative;
+    }
+    
+    .custom-select {
+      position: relative;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .selected-option {
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .selected-option::after {
+      content: "▼";
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-top: none;
+      border-radius: 0 0 4px 4px;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+    }
+    
+    .custom-select.open .options {
+      display: block;
+    }
+    
+    .option {
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .option:hover {
+      background: #f0f0f0;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Επιλογή Χρήστη</h1>
+
+  <div class="selection-container">
+    <label>
+      <input type="radio" name="userType" value="me" onchange="showForm(this.value)">
+      Για εμένα
+    </label>
+    <label>
+      <input type="radio" name="userType" value="child" onchange="showForm(this.value)">
+      Για το παιδί μου
+    </label>
+  </div>
+
+  <!-- === ΦΟΡΜΑ ΓΙΑ ΕΜΕΝΑ === -->
+  <form id="form-me" class="form-section">
+    
+    <fieldset>
+      <legend>Στοιχεία Αθλητή</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="myName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="mySurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="myPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="myEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Σημειώσεις</legend>
+      <div class="form-grid">
+        <label>
+          <textarea name="notes" placeholder="Ιατρικά θέματα ή σημαντικές πληροφορίες" class="notes-input"></textarea>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="categories-fieldset">
+      <legend>Κατηγορίες</legend>
+      <div class="form-grid">
+        <label><input type="checkbox" name="category" value="paidia">Παιδιών</label>
+        <label><input type="checkbox" name="category" value="paidia-mix"> Παιδιών mix</label>
+        <label><input type="checkbox" name="category" value="women"> Γυναικών</label>
+        <label><input type="checkbox" name="category" value="men"> Αντρών</label>
+        <label><input type="checkbox" name="category" value="mix"> Mix</label>
+      </div>
+    </fieldset>
+
+    <div class="submit-button">
+        <button type="submit">Υποβολή</button> 
+    </div>
+  </form>
+
+  <!-- === ΦΟΡΜΑ ΓΙΑ ΤΟ ΠΑΙΔΙ === -->
+  <form id="form-child" class="form-section">
+
+    <fieldset>
+      <legend>Στοιχεία Παιδιού</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="childName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="childSurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>
+          Ηλικία
+          <span class="custom-select-wrapper">
+            <div class="custom-select" id="age-select">
+              <div class="selected-option">Επιλέξτε ηλικία</div>
+              <div class="options"></div>
+              <input type="hidden" name="childAge" required>
+            </div>
+          </span>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="childPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="childEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Στοιχεία Γονέα</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="parentName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="parentSurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="parentPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="parentEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Σημειώσεις</legend>
+      <div class="form-grid">
+        <label>
+          <textarea name="notes" placeholder="Ιατρικά θέματα ή σημαντικές πληροφορίες" class="notes-input"></textarea>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset class="categories-fieldset">
+      <legend>Κατηγορίες</legend>
+      <div class="form-grid">
+        <label><input type="checkbox" name="category" value="paidia"> Παιδιών</label>
+        <label><input type="checkbox" name="category" value="paidia-mix"> Παιδιών mix</label>
+        <label><input type="checkbox" name="category" value="women"> Γυναικών</label>
+        <label><input type="checkbox" name="category" value="men"> Αντρών</label>
+        <label><input type="checkbox" name="category" value="mix"> Mix</label>
+      </div>
+    </fieldset>
+  
+    <div class="submit-button">
+      <button type="submit">Υποβολή</button>
+    </div>
+  </form>
+
+  <script>
+    let selectedSeason = 'Χειμερινό'; // Default season for testing
+    let currentFormType = null;
+
+    // Show form function
+    function showForm(value) {
+      const formMe = document.getElementById("form-me");
+      const formChild = document.getElementById("form-child");
+
+      if (formMe) formMe.classList.remove("active");
+      if (formChild) formChild.classList.remove("active");
+
+      if (value === "me" && formMe) {
+        formMe.classList.add("active");
+        currentFormType = "me";
+      } else if (value === "child" && formChild) {
+        formChild.classList.add("active");
+        currentFormType = "child";
+      }
+    }
+
+    // Initialize age dropdown
+    function initializeAgeDropdown() {
+      const ageSelect = document.getElementById("age-select");
+      if (!ageSelect) return;
+      
+      const selected = ageSelect.querySelector(".selected-option");
+      const optionsContainer = ageSelect.querySelector(".options");
+      const hiddenInput = ageSelect.querySelector("input");
+
+      // Clear existing options
+      optionsContainer.innerHTML = '';
+
+      // Create age options (4-17)
+      for (let i = 4; i <= 17; i++) {
+        const option = document.createElement("div");
+        option.classList.add("option");
+        option.textContent = i;
+        option.dataset.value = i;
+        optionsContainer.appendChild(option);
+      }
+
+      // Add event listeners
+      selected.addEventListener("click", () => {
+        ageSelect.classList.toggle("open");
+      });
+
+      optionsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("option")) {
+          const value = e.target.dataset.value;
+          selected.textContent = value;
+          hiddenInput.value = value;
+          ageSelect.classList.remove("open");
+        }
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!ageSelect.contains(e.target)) {
+          ageSelect.classList.remove("open");
+        }
+      });
+    }
+
+    // Attach form submit listeners
+    function attachFormSubmitListeners() {
+      const formMe = document.getElementById("form-me");
+      const formChild = document.getElementById("form-child");
+
+      if (formMe) {
+        formMe.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          await handleFormSubmit(e, 'me');
+        });
+      }
+
+      if (formChild) {
+        formChild.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          await handleFormSubmit(e, 'child');
+        });
+      }
+    }
+
+    // Handle form submission
+    async function handleFormSubmit(e, formType) {
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const categories = [];
+      form.querySelectorAll('input[name="category"]:checked').forEach(cb => {
+        categories.push(cb.value);
+      });
+
+      // Common fields
+      const notes = formData.get('notes') || '';
+
+      let data = {
+        categories,
+        notes,
+        season: selectedSeason,
+      };
+
+      if (formType === 'child') {
+        data = {
+          ...data,
+          childName: formData.get('childName'),
+          childSurname: formData.get('childSurname'),
+          childAge: formData.get('childAge'),
+          childPhone: formData.get('childPhone'),
+          childEmail: formData.get('childEmail'),
+          parentName: formData.get('parentName'),
+          parentSurname: formData.get('parentSurname'),
+          parentPhone: formData.get('parentPhone'),
+          parentEmail: formData.get('parentEmail'),
+        };
+      } else if (formType === 'me') {
+        data = {
+          ...data,
+          childName: formData.get('myName'),
+          childSurname: formData.get('mySurname'),
+          childPhone: formData.get('myPhone'),
+          childEmail: formData.get('myEmail'),
+        };
+      }
+
+      console.log('Submitting data:', data); // For debugging
+
+      try {
+        // For demo purposes, we'll just show the data
+        alert('Form submitted successfully!\n\nData:\n' + JSON.stringify(data, null, 2));
+        
+        // In your actual code, uncomment this:
+        /*
+        const response = await fetch('/api/register-tour', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          const errMsg = await response.text();
+          alert('Error: ' + errMsg);
+          return;
+        }
+
+        const result = await response.json();
+        alert(`Registration successful! ID: ${result.id}`);
+        */
+        
+        form.reset();
+        
+        // Reset custom dropdown
+        const ageSelect = document.getElementById("age-select");
+        if (ageSelect) {
+          const selected = ageSelect.querySelector(".selected-option");
+          const hiddenInput = ageSelect.querySelector("input");
+          if (selected) selected.textContent = "Επιλέξτε ηλικία";
+          if (hiddenInput) hiddenInput.value = "";
+        }
+        
+      } catch (error) {
+        alert('Submission failed: ' + error.message);
+      }
+    }
+
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeAgeDropdown();
+      attachFormSubmitListeners();
+    });
+  </script>
+
+</body>
+</html>
