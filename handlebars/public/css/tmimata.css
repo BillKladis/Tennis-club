@@ -1,0 +1,407 @@
+html, body {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background: url("/images/tennis-court-surface.png") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+  font: 1.8em / 1.8 Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+/*images tmhmatvn*/
+.kathgories-tmhmatvn img {
+  width: 100px;
+  height: auto; /* Αυτόματα */
+  border-radius: 8px;
+}
+
+
+
+/*main content*/
+.wrapper {
+  flex: 1; 
+  min-height: calc(100vh - 120px); 
+  padding: 20px;
+  box-sizing: border-box;
+}
+.content-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 120px;
+  padding: 0 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap; 
+}
+
+.box {
+  width: 300px; 
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  max-width: 700px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .content-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+
+.kathgories-tmhmatvn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.logo-tmhma {
+  font-weight: 600;
+  color: #333;
+}
+
+.epejhghsh {
+  color: #555;
+}
+
+.epikefalida-tmhmatvn{
+  color: green;
+}
+
+.akadhmies td, 
+.agvnistika td, 
+.enhlikvn td, 
+.eidika-tmhmata td {
+  padding: 5px;
+  font-size: 0.9em;
+}
+.akadhmies h3,
+.agvnistika h3,
+.enhlikvn h3,
+.eidika-tmhmata h3 {
+  margin: 5px 0;
+  font-size: 1em;
+}
+.akadhmies p,
+.agvnistika p,
+.enhlikvn p,
+.eidika-tmhmata p {
+  margin: 5px 0;
+  line-height: 1.3;
+  text-align: justify;
+}
+
+.apply-btn {
+  padding: 8px 16px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: darkgreen;
+}
+
+.action-button {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+/*modal css*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-button {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: black;
+}
+
+
+/*forma css*/
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+form {
+font-family: Arial, sans-serif;
+color: #333;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+h1, h2, h3 {
+color: darkgreen;
+}
+
+.radio-options label {
+color: darkgreen;
+font-weight: 500;
+font-size: 1rem;
+display: inline-flex;
+align-items: center;
+gap: 0.4rem;
+}
+
+input[type="radio"] {
+accent-color: darkgreen;
+}
+
+.selection-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.selection-container label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.form-section {
+  display: none;
+  margin-top: 20px;
+}
+
+.form-section.active {
+  display: block;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+legend {
+color: darkgreen;
+font-weight: bold;
+font-size: 1.1rem;
+margin-bottom: 0.5rem;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-grid label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-grid input[type="text"],
+.form-grid input[type="tel"],
+.form-grid input[type="email"] {
+  padding: 8px;
+  font-size: 14px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.notes-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  height: 80px;
+  resize: vertical;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+
+.submit-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.schedule-table input[type="checkbox"] {
+display: none;
+}
+
+.schedule-table td {
+cursor: pointer;
+background-color: #fff;
+transition: background-color 0.2s ease;
+}
+
+.schedule-table td:hover {
+background-color: #f0f0f0;
+}
+
+.schedule-table td.selected {
+background-color: darkgreen;
+color: white;
+font-weight: bold;
+}
+
+.schedule-table td:hover {
+background-color: #d0e5d0;
+cursor: pointer;
+}
+
+
+button[type="submit"] {
+background-color: darkgreen;
+color: white;
+padding: 0.6rem 1.2rem;
+border: none;
+border-radius: 6px;
+font-size: 1rem;
+font-weight: bold;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+background-color: #065f06; 
+}
+
+
+.custom-select {
+border: 1px solid #ccc;
+border-radius: 5px;
+cursor: pointer;
+position: relative;
+font-size: 1rem;
+color: #333;
+user-select: none;
+}
+
+.custom-select .selected-option {
+padding: 0.6rem 1rem;
+background-color: white;
+}
+
+.custom-select .options {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+border: 1px solid darkgreen;
+border-top: none;
+background-color: white;
+z-index: 1000;
+max-height: 200px;
+overflow-y: auto;
+}
+
+.custom-select.open .options {
+display: block;
+}
+
+.custom-select .option {
+padding: 0.6rem 1rem;
+border-bottom: 1px solid #eee;
+}
+
+.custom-select .option:hover {
+background-color: darkgreen;
+color: white;
+}
+
+
+.custom-select-wrapper {
+width: 60%; 
+display: inline-block;
+}

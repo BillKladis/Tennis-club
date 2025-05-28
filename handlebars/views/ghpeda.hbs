@@ -1,0 +1,68 @@
+<section>
+
+     <!-- Επιλογή γηπέδων -->
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+
+<!-- DatePicker CSS & JS (after TimePicker) -->
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+
+<!-- Calendar CSS & JS (after DatePicker) -->
+<link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+<script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  
+    <!-- COURTS SECTION -->
+    <section class="step-section" id="courts-section">
+      <button class="section-toggle" id="toggle-courts">Courts</button>
+  
+      <div class="court-selection">
+        <div class="court-card" data-id="1">
+          <img src="/images/court1.jpg" alt="Γήπεδο 1"><p>Γήπεδο 1</p>
+        </div>
+        <div class="court-card" data-id="2">
+          <img src="/images/court2.jpg" alt="Γήπεδο 2"><p>Γήπεδο 2</p>
+        </div>
+        <div class="court-card" data-id="3">
+          <img src="/images/court3.jpg" alt="Γήπεδο 3"><p>Γήπεδο 3</p>
+        </div>
+      </div>
+  
+      <button id="courts-next" class="next-btn">Next</button>
+    </section>
+  
+    <!-- TRAINERS SECTION (αρχικά hidden) -->
+    <section class="step-section" id="trainers-section">
+      <button class="section-toggle" id="toggle-trainers">Trainers</button>
+      
+      <!-- Replace existing trainer cards with: -->
+      <div class="court-selection">
+        <div class="court-card trainer" data-trainerid="1">
+          <img src="placeholder.jpg" alt="Φόρτωση...">
+          <p>Φόρτωση...</p>
+          <span class="more-info" data-id="1">Περισσότερα</span>
+        </div>
+        <div class="court-card trainer" data-trainerid="2">
+          <img src="placeholder.jpg" alt="Φόρτωση...">
+          <p>Φόρτωση...</p>
+          <span class="more-info" data-id="2">Περισσότερα</span>
+        </div>
+        <div class="court-card trainer" data-trainerid="3">
+          <img src="placeholder.jpg" alt="Φόρτωση...">
+          <p>Φόρτωση...</p>
+          <span class="more-info" data-id="3">Περισσότερα</span>
+        </div>
+      </div>
+        
+      <button id="trainers-next" class="next-btn">Next</button>
+    </section>
+    
+    <!-- CALENDAR SECTION -->
+    <section class="step-section calendar-step" id="calendar-section">
+      <button class="section-toggle" id="toggle-calendar">Calendar</button>
+      <div id="calendar" style="max-width: 1000px; margin: auto;"></div>
+    </section>
+
+
+  </body>
+</section>

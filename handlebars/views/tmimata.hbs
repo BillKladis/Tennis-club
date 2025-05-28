@@ -1,0 +1,443 @@
+<section>
+ <div class="wrapper">
+        <div id="main-content">
+          <div class="content-row">
+  
+            <div class="box">
+              <h2 class="epikefalida-tmhmatvn">Κατηγορίες Τμημάτων:</h2>
+              <!--kathgories-tmhmatvn-->
+              <div class="kathgories-tmhmatvn">
+                <div class="row">
+                  <!-- akadhmies-->
+                  <table class="akadhmies">
+                      <tr>
+                        <td class="logo-tmhma">
+                          <!--θα προσθεθουν εικόνες και θα διορθωθει το path (μεσα στον public\images) -->
+                          <img src="/images/akadhmies.jpg" alt="Εικόνα 1">
+                        </td>
+                        <td class="epejhghsh" colspan="3">
+                          <h3>Ακαδημίες</h3>
+                          <p>Από την ηλικία των 4 ετών, τα παιδιά μπορούν να 
+                              ξεκινήσουν τα πρώτα τους βήματα στο τένις μέσα 
+                              από τα τμήματα ακαδημιών μας, μαθαίνοντας το 
+                              άθλημα μέσα από το παιχνίδι και τη διασκέδαση!</p>
+                        </td>
+                        <td class="action-button">
+                          <button class="apply-btn" id="openModalBtn">Αίτηση</button>
+                        </td>
+                      </tr>
+  
+                      </table>
+                </div>
+  
+                <div class="row">
+                      <!--agvnistika-->
+                  <table class="agvnistika">
+                      <tr>
+                        <td class="logo-tmhma">
+                          <img src="/images/agvnistika.jpg" alt="Εικόνα 1">
+                        </td>
+                        <td class="epejhghsh" colspan="3">
+                          <h3>Αγωνιστικά</h3>
+                          <p>Για όσους θέλουν να συμμετέχουν σε αγώνες,
+                               να εξελιχθούν και να ζήσουν τη δυναμική 
+                               πλευρά του τένις μέσα από την αγωνιστική
+                                εμπειρία!</p>
+                        </td>
+                        <td class="action-button">
+                          <button class="apply-btn" id="openModalBtn">Αίτηση</button>
+                        </td>
+                      </tr>
+                      
+                      </table>
+                </div>
+  
+                <div class="row">
+                      <!--enhlikvn-->
+                  <table class="enhlikvn">
+                      <tr>
+                        <td class="logo-tmhma">
+                          <img src="/images/enhlikvn.jpg" alt="Εικόνα 1">
+                        </td>
+                        <td class="epejhghsh" colspan="3">
+                          <h3>Ενηλίκων</h3>
+                          <p>Η ακαδημία μας προσφέρει τμήματα για
+                               ενήλικες κάθε επιπέδου — από αρχάριους
+                                που θέλουν να γνωρίσουν το τένις και 
+                                να αθληθούν, μέχρι προχωρημένους που 
+                                επιθυμούν να βελτιώσουν την τεχνική 
+                                τους και να ανεβάσουν το παιχνίδι τους!</p>
+                        </td>
+                        <td class="action-button">
+                          <button class="apply-btn" id="openModalBtn">Αίτηση</button>
+                        </td>
+                      </tr>
+                      
+                      </table>
+                </div>
+  
+                <div class="row">
+                      <!--eidika-tmhmata-->
+                  <table class="eidika-tmhmata">
+                      <tr>
+                        <td class="logo-tmhma">
+                          <img src="/images/eidika.jpg" alt="Εικόνα 1">
+                        </td>
+                        <td class="epejhghsh" colspan="3">
+                          <h3>Ειδικά Τμήματα</h3>
+                          <p>Για όσους θέλουν εντατικά και 
+                              πιο στοχευμένα μαθήματα, προσφέρουμε 
+                              ατομικά τμήματα προπόνησης με την 
+                              καθοδήγηση των έμπειρων προπονητών μας,
+                               προσαρμοσμένα στις ανάγκες και τους 
+                               στόχους κάθε αθλητή.</p>
+                        </td>
+                        <td class="action-button">
+                          <button class="apply-btn" id="openModalBtn">Αίτηση</button>
+                        </td>
+                      </tr>
+                      
+                      </table>
+  
+  
+                </div>
+                
+              </div>
+            </div>
+  
+  
+  
+          </div>
+          
+      </div>
+    </div>
+
+<!-- MODAL CONTAINER -->
+<div id="form-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <div id="modal-form-container">
+<!--forma-->
+        <h1>Επιλογή Χρήστη</h1>
+
+  <div class="selection-container">
+    <label>
+      <input type="radio" name="userType" value="me" onchange="showForm(this.value)">
+      Για εμένα
+    </label>
+    <label>
+      <input type="radio" name="userType" value="child" onchange="showForm(this.value)">
+      Για το παιδί μου
+    </label>
+  </div>
+
+  <!-- === ΦΟΡΜΑ ΓΙΑ ΕΜΕΝΑ === -->
+  <div id="form-me" class="form-section">
+    
+    <fieldset>
+      <legend>Στοιχεία Αθλητή</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="myName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="mySurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="myPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="myEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Σημειώσεις</legend>
+      <div class="form-grid">
+        <label>
+          <textarea type="text" name="notes" placeholder="Ιατρικά θέματα ή σημαντικές πληροφορίες" class="notes-input"></textarea>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Προτίμηση Ώρας</legend>
+      <table class="schedule-table">
+        <thead>
+            <tr>
+              <th>Δευτέρα</th>
+              <th>Τρίτη</th>
+              <th>Τετάρτη</th>
+              <th>Πέμπτη</th>
+              <th>Παρασκευή</th>
+              <th>Σάββατο</th>
+              <th>Κυριακή</th>
+            </tr>
+          </thead>
+          
+        <tbody id="schedule-body">
+
+        </tbody>
+      </table>
+    </fieldset>
+
+    <div class="submit-button">
+        <button type="submit">Υποβολή</button> 
+    </div>
+  </div>
+
+  <!-- ===ΦΟΡΜΑ ΓΙΑ ΤΟ ΠΑΙΔΙ === -->
+  <div id="form-child" class="form-section">
+
+    <fieldset>
+      <legend>Στοιχεία Παιδιού</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="childName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="childSurname" placeholder="Επώνυμο" required>
+        </label>
+        <label for="child-age">Ηλικία</label>
+<label>
+  Ηλικία
+  <span class="custom-select-wrapper">
+    <div class="custom-select" id="age-select">
+      <div class="selected-option">Επιλέξτε ηλικία</div>
+      <div class="options"></div>
+      <input type="hidden" name="childAge" required>
+    </div>
+  </span>
+</label>
+
+          
+        <label>Τηλέφωνο
+          <input type="tel" name="childPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="childEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Στοιχεία Γονέα</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="parentName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="parentSurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="parentPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="parentEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Σημειώσεις</legend>
+      <div class="form-grid">
+        <label>
+          <textarea type="text" name="notes" placeholder="Ιατρικά θέματα ή σημαντικές πληροφορίες" class="notes-input"></textarea>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Προτίμηση Ώρας</legend>
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Δευτέρα</th>
+            <th>Τρίτη</th>
+            <th>Τετάρτη</th>
+            <th>Πέμπτη</th>
+            <th>Παρασκευή</th>
+            <th>Σάββατο</th>
+            <th>Κυριακή</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-body-child">
+
+        </tbody>
+      </table>
+    </fieldset>
+  
+    <div class="submit-button">
+      <button type="submit">Υποβολή</button>
+    </div>
+  </div>
+<!--script formas-->
+  <script>
+    function showForm(value) {
+      document.getElementById("form-me").classList.remove("active");
+      document.getElementById("form-child").classList.remove("active");
+
+      if (value === "me") {
+        document.getElementById("form-me").classList.add("active");
+      } else if (value === "child") {
+        document.getElementById("form-child").classList.add("active");
+      }
+    }
+
+    // Δημιουργία εβδομαδιαίου πίνακα με ώρες (08:00-09:00, κ.λπ.)
+    const scheduleBody = document.getElementById("schedule-body");
+const startHour = 8; 
+const endHour = 23;
+
+for (let h = startHour; h < endHour; h++) {
+  const row = document.createElement("tr");
+
+  for (let d = 0; d < 7; d++) {
+    const cell = document.createElement("td");
+
+    // Για Δευτέρα=0 έως Παρασκευή=4, ώρα 22:00-23:00 (h=22)
+    if (d >= 0 && d <= 4 && h === 22) {
+      cell.textContent = "-";
+      cell.style.color = "#999";
+      cell.style.backgroundColor = "#f9f9f9";
+      cell.style.cursor = "default";
+      // Δεν προσθέτουμε checkbox, μη επιλέξιμο
+    } else {
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = `schedule-${d}-${h}`;
+      checkbox.id = `schedule-${d}-${h}`;
+
+      const hourLabel = `${String(h).padStart(2, '0')}:00-${String(h + 1).padStart(2, '0')}:00`;
+      const label = document.createElement("label");
+      label.htmlFor = checkbox.id;
+      label.textContent = hourLabel;
+
+      cell.addEventListener("click", () => {
+        checkbox.checked = !checkbox.checked;
+        cell.classList.toggle("selected", checkbox.checked);
+      });
+
+      checkbox.style.display = "none";
+      cell.appendChild(checkbox);
+      cell.appendChild(label);
+    }
+
+    row.appendChild(cell);
+  }
+
+  scheduleBody.appendChild(row);
+}
+
+const scheduleBodyChild = document.getElementById("schedule-body-child");
+
+for (let h = startHour; h < endHour; h++) {
+  const row = document.createElement("tr");
+
+  for (let d = 0; d < 7; d++) {
+    const cell = document.createElement("td");
+
+    if (d >= 0 && d <= 4 && h === 22) {
+      cell.textContent = "-";
+      cell.style.color = "#999";
+      cell.style.backgroundColor = "#f9f9f9";
+      cell.style.cursor = "default";
+    } else {
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = `child-schedule-${d}-${h}`;
+      checkbox.id = `child-schedule-${d}-${h}`;
+
+      const hourLabel = `${String(h).padStart(2, '0')}:00-${String(h + 1).padStart(2, '0')}:00`;
+      const label = document.createElement("label");
+      label.htmlFor = checkbox.id;
+      label.textContent = hourLabel;
+
+      cell.addEventListener("click", () => {
+        checkbox.checked = !checkbox.checked;
+        cell.classList.toggle("selected", checkbox.checked);
+      });
+
+      checkbox.style.display = "none";
+      cell.appendChild(checkbox);
+      cell.appendChild(label);
+    }
+
+    row.appendChild(cell);
+  }
+
+  scheduleBodyChild.appendChild(row);
+}
+
+
+/*age style*/
+document.addEventListener("DOMContentLoaded", function () {
+    const ageSelect = document.getElementById("age-select");
+    const selected = ageSelect.querySelector(".selected-option");
+    const optionsContainer = ageSelect.querySelector(".options");
+    const hiddenInput = ageSelect.querySelector("input");
+
+    // Δημιουργία επιλογών ηλικίας από 4 έως 17
+    for (let i = 4; i <= 17; i++) {
+      const option = document.createElement("div");
+      option.classList.add("option");
+      option.textContent = i;
+      option.dataset.value = i;
+      optionsContainer.appendChild(option);
+    }
+
+    // Άνοιγμα/Κλείσιμο dropdown
+    selected.addEventListener("click", () => {
+      ageSelect.classList.toggle("open");
+    });
+
+    // Επιλογή τιμής
+    optionsContainer.addEventListener("click", (e) => {
+      if (e.target.classList.contains("option")) {
+        const value = e.target.dataset.value;
+        selected.textContent = value;
+        hiddenInput.value = value;
+        ageSelect.classList.remove("open");
+      }
+    });
+
+    // Κλείσιμο όταν κάνεις κλικ εκτός
+    document.addEventListener("click", (e) => {
+      if (!ageSelect.contains(e.target)) {
+        ageSelect.classList.remove("open");
+      }
+    });
+  });
+
+
+  </script>
+      </div>
+    </div>
+  </div>
+  
+
+  <!--script modal-->
+  <script>
+
+    const modal = document.getElementById("form-modal");
+    const closeBtn = document.querySelector(".close-button");
+    const openModalBtns = document.querySelectorAll(".apply-btn");
+  
+    openModalBtns.forEach(button => {
+      button.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+    });
+  
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</section>
