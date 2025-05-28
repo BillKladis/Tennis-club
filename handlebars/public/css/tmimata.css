@@ -20,6 +20,15 @@ body {
   padding: 0;
 }
 
+/*images tmhmatvn*/
+.kathgories-tmhmatvn img {
+  width: 100px;
+  height: auto; /* Αυτόματα */
+  border-radius: 8px;
+}
+
+
+
 /*main content*/
 .wrapper {
   flex: 1; 
