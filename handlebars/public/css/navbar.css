@@ -52,7 +52,7 @@
     text-decoration-line: underline;
   }
   
-  .active {
+  .navbar .active {
     background-color: #04AA6D;
     color: white;
     text-decoration: underline;
