@@ -1,0 +1,576 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  overflow-x: hidden;
+}
+/*style bg image*/
+body {
+  background: url("tennis-court-surface.png") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+  font: 1.8em / 1.8 Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+
+.close-modal {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.modal-box {
+  box-sizing: border-box;
+  background: #fff;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 90vh;
+  position: fixed; /* Changed from relative to fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Perfect center */
+  z-index: 1001; /* Ensure it appears above overlay */
+}
+.modal-overlay1 {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal-box1 {
+  box-sizing: border-box;
+  background: #fff;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 90vh;
+  position: fixed; /* Changed from relative to fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Perfect center */
+  z-index: 1001; /* Ensure it appears above overlay */
+}
+
+/*navbar*/
+.navbar {
+  position: fixed; /* Fix it at the top */
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  background-color: #333;
+  z-index: 1000; /* Ensure it's above other content */
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Ensure all items are vertically centered */
+  padding: 10px;
+  transition: height 0.3s ease;
+}
+
+
+.navbar .logo {
+  height: 50px; /* Adjust logo size */
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-left: auto; /* Pushes everything to the right */
+}
+
+.navbar a.con-page {
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.navbar a.con-page:hover {
+  background-color: #ddd;
+  color: green;
+  text-decoration: underline;
+}
+
+.navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+  text-decoration-line: underline;
+}
+
+.active {
+  background-color: #04AA6D;
+  color: white;
+  text-decoration: underline;
+}
+
+
+
+/* Responsive Design */
+@media screen and (min-width: 992px) {
+  .navbar {
+      flex-wrap: nowrap;
+      padding: 0 20px;
+      height: 60px;
+  }
+
+  .logo-container {
+      flex: 0 0 auto;
+  }
+
+  .nav-links {
+      justify-content: center;
+  }
+
+}
+
+/* Handle the awkward transition points */
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .navbar {
+      height: auto;
+      padding: 10px;
+  }
+
+  .logo-container {
+      flex: 0 0 auto;
+      margin-right: 10px;
+  }
+
+  .nav-links {
+      flex: 1;
+      justify-content: center;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .navbar {
+      height: auto;
+      flex-direction: column;
+      padding: 10px;
+  }
+
+  .logo-container {
+      margin-bottom: 10px;
+  }
+
+  .nav-links {
+      width: 100%;
+      justify-content: center;
+      margin: 5px 0;
+  }
+}
+
+/*footer*/
+.site-footer {
+  background-color: #222;
+  color: #eee;
+  padding: 10px 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+.footer-section {
+  flex: 1 1 30%;
+  margin: 10px 10px 0 10px;
+  min-width: 250px;
+  box-sizing: border-box;
+}
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+
+@media (min-width: 992px) {
+  .footer-container {
+    flex-wrap: nowrap;
+  }
+}
+
+
+/* social buttons */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  color: #eee;
+  background-color: #333;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1.3em;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+.social-icons a.twitter:hover {
+  background-color: #000;
+}
+.social-icons a.instagram:hover {
+  background-color: #e1306c;
+}
+
+.footer-headers{
+  color: green;
+}
+
+.footer-headers:hover{
+  text-decoration: underline;
+}
+
+.footer-section:nth-child(2) {
+  text-align: left;
+}
+
+/*map*/
+.responsive-map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.responsive-map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/*main content*/
+.wrapper {
+  flex: 1; /* Επέκταση για να γεμίσει τον διαθέσιμο χώρο */
+  min-height: calc(100vh - 120px); /* ύψος περίπου = viewport - ύψος footer αναλογα με το πραγμ;ατικο ύψος footer 120px αλλαγη μετα αναλογα */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 120px;
+  padding: 0 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap; /* για μικρές οθόνες */
+}
+
+.left-box,
+.right-box {
+  width: 300px; /* μικρότερο πλάτος */
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustment for smaller screens */
+@media screen and (max-width: 768px) {
+  .content-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .left-box, 
+  .right-box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/*left table*/
+.hours-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.label {
+  font-weight: 600;
+  color: #333;
+}
+
+.value {
+  color: #555;
+}
+
+.hours{
+  color: green;
+}
+
+
+.tournament-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 120px;
+  padding: 0 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tournament-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  box-sizing: border-box;
+  text-align: justify;
+}
+
+.section-title {
+  color: green;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.tournament-btn {
+  padding: 10px 20px;
+  margin-right: 15px;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tournament-btn:hover {
+  background-color: #028e5a;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result-row a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f4f4f4;
+  transition: background-color 0.2s ease;
+}
+
+.result-row a:hover {
+  background-color: #e0f5e9;
+  color: green;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button:hover {
+  background-color: #ccc;
+}
+
+.subheading {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.center-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tournament-results-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sub-heading {
+  margin-top: 10px;
+  color: #666;
+  text-align: center;
+}
+
+.dropdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dropbtn i {
+  margin-left: 8px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown-winter:hover > .dropdown-content {
+  display: block;
+}
+
+.dropdown-summer:hover > .dropdown-content {
+  display: block;
+}
+
+    /* Υπομενού – δεύτερο επίπεδο */
+/* Υπομενού που εμφανίζεται στα δεξιά κάθε έτους */
+.sub-dropdown {
+  position: relative;
+}
+
+.sub-dropdown-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+  border: 1px solid #ccc;
+}
+
+.sub-dropdown-content a {
+  color: black;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.sub-dropdown:hover > .sub-dropdown-content {
+  display: block;
+}
+/* Προαιρετικά: Εμφάνιση βέλους στη δεξιά πλευρά */
+.sub-dropdown > a::after {
+  content: " ▶";
+  font-size: 12px;
+}

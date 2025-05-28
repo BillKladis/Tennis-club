@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gk26</title>
+    <link rel="stylesheet" href="front_page.css"> <!-- navbar styling -->
+    <link href="tour.css" rel="stylesheet" type="text/css">
+    <script type="module" src="Actions.mjs"></script>
+    <script type="module" src="tour.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<!--  -->
+<body>
+
+
+
+    <!-- start navbar -->
+    <div class="navbar">
+          <!-- Logo in container -->
+          <div class="logo-container">
+              <img src="gk26.png" class="logo" alt="gk26 Logo">
+          </div>
+
+          <!-- start nav-links /connected pages -->
+          <div class="nav-links">
+          <a href="" class="con-page active" id="index">Αρχική</a>
+          <a href="" class="con-page" id="load-courts">Γήπεδα</a>
+          <a href="" class="con-page">Τμήματα</a>
+          <a href="" class="con-page" id="tour">Τουρνουά</a>
+          <a href="" class="con-page">Ανακοινώσεις</a>
+          <a href="" class="con-page">Επικοινωνία</a>
+          <a href="" class="con-page" id="connection">Σύνδεση</a>
+          <!-- end nav-links -->
+          </div>
+
+    <!--end navbar-->    
+    </div>
+
+  <div class="wrapper">
+    <!--main content-->
+<div id="main-content">
+  <!--content column-->
+  <div class="tournament-column">
+
+    <!-- Info Box -->
+    <div class="tournament-box">
+      <h2 class="section-title">Σχετικά με τα τουρνουά.</h2>
+      <h4 class="sub-heading"><em>Είσαι έτοιμος να δοκιμάσεις τις ικανότητές σου στο γήπεδο;</em></h4>
+      <p>Το <strong>GK26</strong> διοργανώνει κάθε χρόνο δύο συναρπαστικά τουρνουά για τα μέλη του!<br>
+        Η <strong>περίοδος διεξαγωγής</strong> τους είναι Οκτώβριος - Νοέμβριος - Δεκέμβριος και
+          Μάρτιος - Απρίλιος - Μάιος αντίστοιχα.<br> Κάθε τουρνουά περιλαμβάνει <strong>τέσσερις κατηγορίες</strong>:
+          παιδιών, γυναικών, αντρών και mix για να μην μείνει κανένας παίχτης εκτός.
+         </p>
+         <p>Γιατί στο <strong>GK26</strong> δεν παίζεις απλώς τένις - ζεις την εμπειρία!</p>
+    </div>
+
+<!-- Participation Buttons (Modal Triggers) -->
+<div class="tournament-box">
+  <h2 class="section-title">Δήλωσε Συμμετοχή!</h2>
+  <div class="center-buttons">
+    <button class="tournament-btn" onclick="showCustomCreatePopup('Χειμερινό')">Χειμερινό Τουρνουά</button>
+    <button class="tournament-btn" onclick="showCustomCreatePopup('Καλοκαιρινό')">Καλοκαιρινό Τουρνουά</button>
+  </div>
+</div>
+
+
+<!--enhmervsoy-->
+<div class="tournament-results-box">
+  <h2 class="section-title">Ενημερώσου!</h2>
+  <h4 class="sub-heading"><em>Σχετικά με...</em></h4>
+
+  <div class="dropdown-wrapper">
+    <!-- Χειμερινά Τουρνουά -->
+    <div class="dropdown dropdown-winter">
+      <button class="dropbtn">Χειμερινά Τουρνουά <i class="fa fa-caret-down"></i></button>
+      <div class="dropdown-content">
+
+          <div class="sub-dropdown">
+            <a href="#">2025</a>
+            <div class="sub-dropdown-content">
+              <!--links pdf-->
+              <a href="">📅 Πρόγραμμα</a>
+              <a href="">🏆 Αποτελέσματα</a>
+            </div>
+          </div>
+  
+  
+          <div class="sub-dropdown">
+            <a href="#">2024</a>
+            <div class="sub-dropdown-content">
+              <!--links pdf-->
+              <a href="">📅 Πρόγραμμα</a>
+              <a href="">🏆 Αποτελέσματα</a>
+            </div>
+          </div>
+   </div>
+</div>
+    <!-- Καλοκαιρινά Τουρνουά -->
+    <div class="dropdown dropdown-summer">
+      <button class="dropbtn">Καλοκαιρινά Τουρνουά <i class="fa fa-caret-down"></i></button>
+      <div class="dropdown-content">
+
+        <div class="sub-dropdown">
+          <a href="#">2025</a>
+          <div class="sub-dropdown-content">
+            <!--links pdf-->
+            <a href="">📅 Πρόγραμμα</a>
+            <a href="">🏆 Αποτελέσματα</a>
+          </div>
+        </div>
+
+
+        <div class="sub-dropdown">
+          <a href="#">2024</a>
+          <div class="sub-dropdown-content">
+            <!--links pdf-->
+            <a href="">📅 Πρόγραμμα</a>
+            <a href="">🏆 Αποτελέσματα</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+    <!--end main content-->
+    </div>
+  <!--end wrapper-->
+  </div>
+
+  <!-- start footer-->  
+  <footer class="site-footer">
+      <!--start footer-container-->
+      <div class="footer-container">
+
+        <!--start footer-section1-->
+        <div class="footer-section">
+          <h4 class="footer-headers">Social Media:</h4>
+          <div class="social-icons">
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="twitter" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        <!--end footer-section1-->
+        </div>
+
+        <!--start footer-section2-->
+        <div class="footer-section">
+          <h4 class="footer-headers">Θα μας βρείτε:</h4>
+          <p>Διεύθυνση: <br>Περιοχή: <br>Τηλέφωνο: <br>email:</p>
+        <!--end footer-section2-->
+        </div>    
+          
+        <!--start footer-section3-->
+        <div class="footer-section">
+          <h4 class="footer-headers">Τοποθεσία:</h4>
+          <div class="responsive-map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.6144432794276!2d21.788712399999998!3d38.2884295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135e4b2793dd6803%3A0x52ca8ed18dc0ae06!2zzqTOvM6uzrzOsSDOl867zrXOus-Ez4HOv867z4zOs8-Jzr0gzpzOt8-HzrHOvc65zrrPjs69IM66zrHOuSDOpM61z4fOvc6_zrvOv86zzq_Osc-CIM6lz4DOv867zr_Os865z4PPhM-Ozr0sIM6gzr_Ou8-Fz4TOtc-Hzr3Ouc66zq4gzqPPh86_zrvOriwgzqDOsc69zrXPgM65z4PPhM6uzrzOuc6_IM6gzrHPhM-Bz47OvQ!5e0!3m2!1sel!2sgr!4v1746905669033!5m2!1sel!2sgr"
+             width="600" 
+             height="450" 
+             style="border:0;" 
+             allowfullscreen="" 
+             loading="lazy" 
+             referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        <!--end footer-section3-->
+        </div>          
+
+
+      <!--end footer-container-->
+      </div>
+
+          <!--start footer-bootom-->
+          <div class="footer-bottom">
+            <p>© 2025 GK26. All rights preserved</p>
+        <!--end footer-bottom-->
+        </div>
+  </footer>
+<div id="modalContainer" style="display:none;" class="modal-overlay">
+  <div class="modal-box" id="modalContent"></div>
+</div>
+<div id="modalContainer1" style="display:none;" class="modal-overlay1">
+  <div class="modal-box1" id="modalContent1"></div>
+</div>
+</div>
+</body>
+</html>
