@@ -137,10 +137,14 @@ export let getSchedule= () => {
 }
 export let addSchedule = (event) => {
     // Check duration (in ms)
+    const now = new Date();
     const start = new Date(event.start);
     const end = new Date(event.end);
     const duration = (end - start) / (1000 * 60 * 60); // hours
     console.log('duration', duration);
+    if (start < now) {
+      throw new Error('Δεν μπορείτε να κάνετε κράτηση σε παρελθοντική ημερομηνία.');
+    }
     if(duration < 0) {
         throw new Error('Η ώρα έναρξης είναι μετά την ώρα λήξης.');
     }
