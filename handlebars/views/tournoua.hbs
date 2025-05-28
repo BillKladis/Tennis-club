@@ -20,8 +20,8 @@
 <div class="tournament-box">
   <h2 class="section-title">Δήλωσε Συμμετοχή!</h2>
   <div class="center-buttons">
-    <button class="tournament-btn" onclick="openModal('winterForm')">Χειμερινό Τουρνουά</button>
-    <button class="tournament-btn" onclick="openModal('summerForm')">Καλοκαιρινό Τουρνουά</button>
+    <button class="tournament-btn apply-btn" id="openModalBtn">Χειμερινό Τουρνουά</button>
+    <button class="tournament-btn apply-btn" id="openModalBtn">Καλοκαιρινό Τουρνουά</button>
   </div>
 </div>
 
@@ -94,4 +94,346 @@
     </div>
   </div>
 
+
+<!-- MODAL CONTAINER -->
+<div id="form-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <div id="modal-form-container">
+<!--forma-->
+
+        <h1>Επιλογή Χρήστη</h1>
+
+  <div class="selection-container">
+    <label>
+      <input type="radio" name="userType" value="me" onchange="showForm(this.value)">
+      Για εμένα
+    </label>
+    <label>
+      <input type="radio" name="userType" value="child" onchange="showForm(this.value)">
+      Για το παιδί μου
+    </label>
+  </div>
+
+  <!-- === ΦΟΡΜΑ ΓΙΑ ΕΜΕΝΑ === -->
+  <form id="form-me" class="form-section">
+    
+    <fieldset>
+      <legend>Στοιχεία Αθλητή</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="myName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="mySurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="myPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="myEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Σημειώσεις</legend>
+      <div class="form-grid">
+        <label>
+          <textarea name="notes" placeholder="Ιατρικά θέματα ή σημαντικές πληροφορίες" class="notes-input"></textarea>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="categories-fieldset">
+      <legend>Κατηγορίες</legend>
+      <div class="form-grid">
+        <label><input type="checkbox" name="category" value="paidia">Παιδιών</label>
+        <label><input type="checkbox" name="category" value="paidia-mix"> Παιδιών mix</label>
+        <label><input type="checkbox" name="category" value="women"> Γυναικών</label>
+        <label><input type="checkbox" name="category" value="men"> Αντρών</label>
+        <label><input type="checkbox" name="category" value="mix"> Mix</label>
+      </div>
+    </fieldset>
+
+    <div class="submit-button">
+        <button type="submit">Υποβολή</button> 
+    </div>
+  </form>
+
+  <!-- === ΦΟΡΜΑ ΓΙΑ ΤΟ ΠΑΙΔΙ === -->
+  <form id="form-child" class="form-section">
+
+    <fieldset>
+      <legend>Στοιχεία Παιδιού</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="childName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="childSurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>
+          Ηλικία
+          <span class="custom-select-wrapper">
+            <div class="custom-select" id="age-select">
+              <div class="selected-option">Επιλέξτε ηλικία</div>
+              <div class="options"></div>
+              <input type="hidden" name="childAge" required>
+            </div>
+          </span>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="childPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="childEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Στοιχεία Γονέα</legend>
+      <div class="form-grid">
+        <label>Όνομα
+          <input type="text" name="parentName" placeholder="Όνομα" required>
+        </label>
+        <label>Επώνυμο
+          <input type="text" name="parentSurname" placeholder="Επώνυμο" required>
+        </label>
+        <label>Τηλέφωνο
+          <input type="tel" name="parentPhone" placeholder="Τηλέφωνο" required>
+        </label>
+        <label>Email
+          <input type="email" name="parentEmail" placeholder="Email" required>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset>
+      <legend>Σημειώσεις</legend>
+      <div class="form-grid">
+        <label>
+          <textarea name="notes" placeholder="Ιατρικά θέματα ή σημαντικές πληροφορίες" class="notes-input"></textarea>
+        </label>
+      </div>
+    </fieldset>
+  
+    <fieldset class="categories-fieldset">
+      <legend>Κατηγορίες</legend>
+      <div class="form-grid">
+        <label><input type="checkbox" name="category" value="paidia"> Παιδιών</label>
+        <label><input type="checkbox" name="category" value="paidia-mix"> Παιδιών mix</label>
+        <label><input type="checkbox" name="category" value="women"> Γυναικών</label>
+        <label><input type="checkbox" name="category" value="men"> Αντρών</label>
+        <label><input type="checkbox" name="category" value="mix"> Mix</label>
+      </div>
+    </fieldset>
+  
+    <div class="submit-button">
+      <button type="submit">Υποβολή</button>
+    </div>
+  </form>
+
+<!--script formas-->
+  <script>
+    let selectedSeason = 'Χειμερινό'; // Default season for testing
+    let currentFormType = null;
+
+    // Show form function
+    function showForm(value) {
+      const formMe = document.getElementById("form-me");
+      const formChild = document.getElementById("form-child");
+
+      if (formMe) formMe.classList.remove("active");
+      if (formChild) formChild.classList.remove("active");
+
+      if (value === "me" && formMe) {
+        formMe.classList.add("active");
+        currentFormType = "me";
+      } else if (value === "child" && formChild) {
+        formChild.classList.add("active");
+        currentFormType = "child";
+      }
+    }
+
+    // Initialize age dropdown
+    function initializeAgeDropdown() {
+      const ageSelect = document.getElementById("age-select");
+      if (!ageSelect) return;
+      
+      const selected = ageSelect.querySelector(".selected-option");
+      const optionsContainer = ageSelect.querySelector(".options");
+      const hiddenInput = ageSelect.querySelector("input");
+
+      // Clear existing options
+      optionsContainer.innerHTML = '';
+
+      // Create age options (4-17)
+      for (let i = 4; i <= 17; i++) {
+        const option = document.createElement("div");
+        option.classList.add("option");
+        option.textContent = i;
+        option.dataset.value = i;
+        optionsContainer.appendChild(option);
+      }
+
+      // Add event listeners
+      selected.addEventListener("click", () => {
+        ageSelect.classList.toggle("open");
+      });
+
+      optionsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("option")) {
+          const value = e.target.dataset.value;
+          selected.textContent = value;
+          hiddenInput.value = value;
+          ageSelect.classList.remove("open");
+        }
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!ageSelect.contains(e.target)) {
+          ageSelect.classList.remove("open");
+        }
+      });
+    }
+
+    // Attach form submit listeners
+    function attachFormSubmitListeners() {
+      const formMe = document.getElementById("form-me");
+      const formChild = document.getElementById("form-child");
+
+      if (formMe) {
+        formMe.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          await handleFormSubmit(e, 'me');
+        });
+      }
+
+      if (formChild) {
+        formChild.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          await handleFormSubmit(e, 'child');
+        });
+      }
+    }
+
+    // Handle form submission
+    async function handleFormSubmit(e, formType) {
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const categories = [];
+      form.querySelectorAll('input[name="category"]:checked').forEach(cb => {
+        categories.push(cb.value);
+      });
+
+      // Common fields
+      const notes = formData.get('notes') || '';
+
+      let data = {
+        categories,
+        notes,
+        season: selectedSeason,
+      };
+
+      if (formType === 'child') {
+        data = {
+          ...data,
+          childName: formData.get('childName'),
+          childSurname: formData.get('childSurname'),
+          childAge: formData.get('childAge'),
+          childPhone: formData.get('childPhone'),
+          childEmail: formData.get('childEmail'),
+          parentName: formData.get('parentName'),
+          parentSurname: formData.get('parentSurname'),
+          parentPhone: formData.get('parentPhone'),
+          parentEmail: formData.get('parentEmail'),
+        };
+      } else if (formType === 'me') {
+        data = {
+          ...data,
+          childName: formData.get('myName'),
+          childSurname: formData.get('mySurname'),
+          childPhone: formData.get('myPhone'),
+          childEmail: formData.get('myEmail'),
+        };
+      }
+
+      console.log('Submitting data:', data); // For debugging
+
+      try {
+        // For demo purposes, we'll just show the data
+        alert('Form submitted successfully!\n\nData:\n' + JSON.stringify(data, null, 2));
+        
+        // In your actual code, uncomment this:
+        /*
+        const response = await fetch('/api/register-tour', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          const errMsg = await response.text();
+          alert('Error: ' + errMsg);
+          return;
+        }
+
+        const result = await response.json();
+        alert(`Registration successful! ID: ${result.id}`);
+        */
+        
+        form.reset();
+        
+        // Reset custom dropdown
+        const ageSelect = document.getElementById("age-select");
+        if (ageSelect) {
+          const selected = ageSelect.querySelector(".selected-option");
+          const hiddenInput = ageSelect.querySelector("input");
+          if (selected) selected.textContent = "Επιλέξτε ηλικία";
+          if (hiddenInput) hiddenInput.value = "";
+        }
+        
+      } catch (error) {
+        alert('Submission failed: ' + error.message);
+      }
+    }
+
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeAgeDropdown();
+      attachFormSubmitListeners();
+    });
+  </script>
+        </div>
+        </div>
+        </div>
+  
+
+  <!--script modal-->
+  <script>
+    // Modal Λειτουργίες
+    const modal = document.getElementById("form-modal");
+    const closeBtn = document.querySelector(".close-button");
+    const openModalBtns = document.querySelectorAll(".apply-btn"); // Πιάσε ΟΛΑ τα κουμπιά
+  
+    openModalBtns.forEach(button => {
+      button.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+    });
+  
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
   </section>
